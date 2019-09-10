@@ -123,9 +123,9 @@ Welcome to protractor
  __-""=======.--""  ""--.=================================.--""  ""--.=======:
 
   
-Write a test were using vendorly angular
+Write a test were using vendorly angular aka. hello world
 
-file:/home/uoul/My_Computer/Projects/VendorlyAngular/e2e/src/stuff.e2e-spec.ts
+file:~//My_Computer/Projects/VendorlyAngular/e2e/src/stuff.e2e-spec.ts
 
 // spec.js
 describe('Protractor Demo App', function() {
@@ -135,3 +135,99 @@ describe('Protractor Demo App', function() {
     expect(browser.getTitle()).toEqual('Super Calculator');
   });
 });
+
+
+                          _.-="_-         _
+                         _.-="   _-          | ||"""""""---._______     __..
+             ___.===""""-.______-,,,,,,,,,,,,`-''----" """""       """""  __'
+      __.--""     __        ,'                   o \           __        [__|
+ __-""=======.--""  ""--.=================================.--""  ""--.=======:
+
+
+Interacting with elements
+
+file:~//My_Computer/Projects/VendorlyAngular/e2e/src/interact.e2e-spec.ts
+
+
+by.model('first') to find the element with ng-model="first". If you inspect the Calculator page source, you will see this is <input type="text" ng-model="first">.
+by.id('gobutton') to find the element with the given id. This finds <button id="gobutton">.
+by.binding('latest') to find the element bound to the variable latest. This finds the span containing {{latest}}
+
+
+                          _.-="_-         _
+                         _.-="   _-          | ||"""""""---._______     __..
+             ___.===""""-.______-,,,,,,,,,,,,`-''----" """""       """""  __'
+      __.--""     __        ,'                   o \           __        [__|
+ __-""=======.--""  ""--.=================================.--""  ""--.=======:
+ 
+ writing multiple scenarios
+ 
+ file:~//My_Computer/Projects/VendorlyAngular/e2e/src/multiple.e2e-spec.ts
+ 
+ 
+ 
+                           _.-="_-         _
+                         _.-="   _-          | ||"""""""---._______     __..
+             ___.===""""-.______-,,,,,,,,,,,,`-''----" """""       """""  __'
+      __.--""     __        ,'                   o \           __        [__|
+ __-""=======.--""  ""--.=================================.--""  ""--.=======:
+ 
+ 
+ changing the config
+ 
+ refer to https://github.com/angular/protractor/blob/5.4.1/lib/config.ts
+ for full config modification
+ 
+ change the browser name to firefox
+ 
+file:~//My_Computer/Projects/VendorlyAngular/e2e/protractor.conf.js
+
+
+when you get an error where the test says it cannot find angular on the page just use
+browser.waitForAngularEnabled(false), the url should pop up in the error
+ 
+ 
+ 
+ 
+ for accessiblity
+ 
+ https://www.protractortest.org/#/plugins
+ 
+ 
+ all different browsers
+ 
+    { ANDROID: 'android',
+     CHROME: 'chrome',
+     EDGE: 'MicrosoftEdge',
+     FIREFOX: 'firefox',
+     IE: 'internet explorer',
+     INTERNET_EXPLORER: 'internet explorer',
+     IPAD: 'iPad',
+     IPHONE: 'iPhone',
+     OPERA: 'opera',
+     PHANTOM_JS: 'phantomjs',
+     SAFARI: 'safari',
+     HTMLUNIT: 'htmlunit' },
+     
+     
+when u need to open different browsers
+https://www.protractortest.org/#/browser-setup
+
+
+switch btwn suites
+
+  suites: {
+    homepage: 'tests/e2e/homepage/**/*Spec.js',
+    search: ['tests/e2e/contact_search/**/*Spec.js',
+      'tests/e2e/venue_search/**/*Spec.js']
+  },
+
+
+protractor protractor.conf.js --suite homepage
+
+
+to get the capabailites, a lot of things are in
+
+        protractor.browser.getCapabilities().then((value: Capabilities)=>{
+            console.log(value)
+        })
