@@ -229,5 +229,6 @@ protractor protractor.conf.js --suite homepage
 to get the capabailites, a lot of things are in
 
         protractor.browser.getCapabilities().then((value: Capabilities)=>{
-            console.log(value)
+            console.log(value.get("browserName"))
+            debugger
         })
